@@ -237,7 +237,7 @@ func (t *Tar) untarFile(f File, to string) error {
 	case tar.TypeSymlink:
 		return writeNewSymbolicLink(to, hdr.Linkname)
 	case tar.TypeLink:
-		return writeNewHardLink(to, filepath.Join(to, hdr.Linkname))
+		return writeNewHardLink(to, hdr.Linkname)
 	case tar.TypeXGlobalHeader:
 		return nil // ignore the pax global header from git-generated tarballs
 	default:
